@@ -81,48 +81,69 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeLightbox();
 });
 
-// ── Reviews touch drag
+// ── Reviews touch drag / tap-to-pause
 (function () {
   const track = document.getElementById('reviewsTrack');
   if (!track) return;
 
-  let startX = 0, startOffset = 0, dragging = false, resumeTimer;
+  let startX = 0, startOffset = 0, isDrag = false, isPaused = false, resumeTimer;
 
   function getOffset() {
     return new DOMMatrix(window.getComputedStyle(track).transform).m41;
   }
 
-  track.addEventListener('touchstart', (e) => {
+  function resume(offset) {
+    const loopWidth = track.scrollWidth / 2;
+    const delay = -((Math.abs(offset) / loopWidth) * 52);
+    track.style.transform = '';
+    track.style.animation = `scrollReviews 52s linear ${delay}s infinite`;
+    isPaused = false;
+  }
+
+  function pause() {
     clearTimeout(resumeTimer);
     startOffset = getOffset();
     track.style.animation = 'none';
     track.style.transform = `translateX(${startOffset}px)`;
+    isPaused = true;
+  }
+
+  track.addEventListener('touchstart', (e) => {
+    clearTimeout(resumeTimer);
+    startOffset = getOffset();
     startX = e.touches[0].clientX;
-    dragging = true;
+    isDrag = false;
   }, { passive: true });
 
   track.addEventListener('touchmove', (e) => {
-    if (!dragging) return;
-    track.style.transform = `translateX(${startOffset + e.touches[0].clientX - startX}px)`;
+    const delta = e.touches[0].clientX - startX;
+    if (Math.abs(delta) > 6) {
+      if (!isDrag) {
+        track.style.animation = 'none';
+        track.style.transform = `translateX(${startOffset}px)`;
+        isDrag = true;
+      }
+      track.style.transform = `translateX(${startOffset + delta}px)`;
+    }
   }, { passive: true });
 
   track.addEventListener('touchend', (e) => {
-    if (!dragging) return;
-    dragging = false;
+    const delta = e.changedTouches[0].clientX - startX;
+
+    if (!isDrag) {
+      // Tap — toggle pause/play
+      isPaused ? resume(getOffset()) : pause();
+      return;
+    }
+
+    // Drag — normalizuj pozici a auto-resume po 2s
     const loopWidth = track.scrollWidth / 2;
-    let offset = startOffset + e.changedTouches[0].clientX - startX;
-    // Normalizace v rozsahu [-loopWidth, 0]
+    let offset = startOffset + delta;
     offset = ((offset % loopWidth) - loopWidth) % loopWidth;
     if (offset > 0) offset -= loopWidth;
     track.style.transform = `translateX(${offset}px)`;
+    isPaused = false;
 
-    // Obnoví animaci ze stejné pozice po 2 sekundách
-    resumeTimer = setTimeout(() => {
-      const lo = track.scrollWidth / 2;
-      const cur = parseFloat(track.style.transform.match(/-?[\d.]+/)?.[0] || '0');
-      const delay = -((Math.abs(cur) / lo) * 52);
-      track.style.transform = '';
-      track.style.animation = `scrollReviews 52s linear ${delay}s infinite`;
-    }, 2000);
+    resumeTimer = setTimeout(() => resume(offset), 2000);
   });
 }());
