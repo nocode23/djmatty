@@ -55,6 +55,7 @@ hamburger.addEventListener('click', () => {
 });
 
 document.getElementById('mobileClose').addEventListener('click', closeMobile);
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobile));
 
 mobileMenu.addEventListener('click', (e) => {
   if (e.target === mobileMenu) closeMobile();
