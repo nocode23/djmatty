@@ -37,9 +37,28 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 // ── Mobile menu
-function openMobile() { document.getElementById('mobileMenu').classList.add('open'); }
-function closeMobile() { document.getElementById('mobileMenu').classList.remove('open'); }
+const mobileMenu = document.getElementById('mobileMenu');
+const hamburger = document.getElementById('hamburger');
+
+function openMobile() {
+  mobileMenu.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMobile() {
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+hamburger.addEventListener('click', () => {
+  mobileMenu.classList.contains('open') ? closeMobile() : openMobile();
+});
+
 document.getElementById('mobileClose').addEventListener('click', closeMobile);
+
+mobileMenu.addEventListener('click', (e) => {
+  if (e.target === mobileMenu) closeMobile();
+});
 
 // ── Lightbox
 function openLightbox(src) {
