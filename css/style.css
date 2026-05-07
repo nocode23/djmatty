@@ -363,6 +363,12 @@ section { padding: 120px 60px; }
   section { padding: 80px 24px; }
 }
 
+@media (max-width: 480px) {
+  .hero-eyebrow { font-size: 11px; letter-spacing: 3px; }
+  .hero-sub { font-size: 13px; letter-spacing: 2px; }
+  .hero-btn { padding: 14px 32px; }
+}
+
 .section-label {
   font-size: 11px;
   font-weight: 500;
@@ -476,6 +482,9 @@ section { padding: 120px 60px; }
   .about-grid { grid-template-columns: 1fr; gap: 48px; }
   .about-text-side { padding-left: 0; }
   .about-photo { aspect-ratio: 4/3; }
+  .about-photo-wrap::before { display: none; }
+  .stats { gap: 24px; }
+  .stat-number { font-size: 48px; }
 }
 
 /* ─── SERVICES ─── */
@@ -531,6 +540,7 @@ section { padding: 120px 60px; }
 
 @media (max-width: 768px) {
   .services-grid { grid-template-columns: 1fr; }
+  .service-card { padding: 32px 24px; }
 }
 
 /* ─── REVIEWS ─── */
@@ -555,7 +565,7 @@ section { padding: 120px 60px; }
   content: '';
   position: absolute;
   top: 0; bottom: 0;
-  width: 120px;
+  width: clamp(40px, 8vw, 120px);
   z-index: 2;
 }
 
@@ -701,6 +711,8 @@ section { padding: 120px 60px; }
 
 @media (max-width: 768px) {
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .review-card { width: 300px; padding: 24px; }
+  .review-text { font-size: 15px; }
 }
 
 /* ─── LIGHTBOX ─── */
