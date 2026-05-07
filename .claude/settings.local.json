@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.djmatty.cz)",
+      "Bash(curl -sO \"https://www.djmatty.cz/wp-content/uploads/2026/03/Matty_01-2-2.jpg\")",
+      "Bash(curl -sO \"https://www.djmatty.cz/wp-content/uploads/2026/03/matty_02.jpg\")",
+      "Bash(curl -sO \"https://www.djmatty.cz/wp-content/uploads/2026/03/IMG_5459.jpg\")",
+      "Bash(curl -sO \"https://www.djmatty.cz/wp-content/uploads/2026/03/IMG_6564.jpg\")",
+      "Bash(curl -sO \"https://www.djmatty.cz/wp-content/uploads/2026/03/IMG_4029.jpg\")"
+    ]
+  }
+}

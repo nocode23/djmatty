@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DJ MATTY — Profesionální DJ Praha</title>
+  <meta name="description" content="DJ MATTY — profesionální DJ s 14+ lety zkušeností. Svatby, firemní večírky, oslavy. Praha a celá ČR." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ─── LOADER ─── -->
+<div id="loader">
+  <svg viewBox="0 0 560 100" xmlns="http://www.w3.org/2000/svg">
+    <text class="fill-in" x="50%" y="85" text-anchor="middle">DJ MATTY</text>
+  </svg>
+  <div class="loader-line"></div>
+</div>
+
+<!-- ─── MOBILE MENU ─── -->
+<div class="mobile-menu" id="mobileMenu">
+  <span class="mobile-close" id="mobileClose">✕</span>
+  <a href="#about" onclick="closeMobile()">O mně</a>
+  <a href="#services" onclick="closeMobile()">Služby</a>
+  <a href="#reviews" onclick="closeMobile()">Recenze</a>
+  <a href="#gallery" onclick="closeMobile()">Galerie</a>
+  <a href="#contact" onclick="closeMobile()">Kontakt</a>
+</div>
+
+<!-- ─── NAV ─── -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">djMATTY</a>
+  <ul class="nav-links">
+    <li><a href="#about">O mně</a></li>
+    <li><a href="#services">Služby</a></li>
+    <li><a href="#reviews">Recenze</a></li>
+    <li><a href="#gallery">Galerie</a></li>
+    <li><a href="#contact" class="nav-cta">Kontakt</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="openMobile()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Profesionální DJ · Praha &amp; celá ČR</p>
+    <h1 class="hero-title">ROZTANČÍM<br><span>KAŽDOU</span><br>VAŠI AKCI</h1>
+    <p class="hero-sub">14 LET ZKUŠENOSTÍ · PŘIZPŮSOBÍM SE KAŽDÉ AKCI</p>
+    <a href="#contact" class="hero-btn"><span>Nezávazná poptávka</span></a>
+  </div>
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ─── O MNĚ ─── -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-photo-wrap reveal">
+      <img
+        class="about-photo"
+        src="images/matty_02.jpg"
+        alt="DJ MATTY"
+        loading="lazy"
+      />
+    </div>
+    <div class="about-text-side reveal" style="transition-delay:0.15s">
+      <p class="section-label">Kdo jsem</p>
+      <h2 class="section-title">14 LET ZA<br>MIXPULTEM</h2>
+      <div class="red-line"></div>
+      <p>
+        Jsem multižánrový DJ s více než 14 lety zkušeností. Začínal jsem jako technik
+        u místních DJs, což mi dalo pevné základy a pochopení toho, co dělá akci
+        skvělou. Dnes hraji v pražských i mimopražských klubech a specializuji se na
+        firemní večírky, svatby a narozeninové oslavy.
+      </p>
+      <p style="margin-top:16px">
+        Moje vášeň pro hudbu a chuť bavit lidi jsou zárukou, že každá vaše akce bude
+        nezapomenutelná. Naslouchám vašim přáním a zároveň přináším vlastní nápady
+        — zahraji v podstatě cokoliv.
+      </p>
+      <div class="stats">
+        <div class="stat-item">
+          <div class="stat-number">14<span style="color:var(--red)">+</span></div>
+          <div class="stat-label">Let zkušeností</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100<span style="color:var(--red)">+</span></div>
+          <div class="stat-label">Úspěšných akcí</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" style="color:var(--white)">★★★★★</div>
+          <div class="stat-label">Hodnocení klientů</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SLUŽBY ─── -->
+<section id="services">
+  <div class="services-inner">
+    <div class="reveal">
+      <p class="section-label">Co nabízím</p>
+      <h2 class="section-title">SLUŽBY</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal" style="transition-delay:0.1s">
+        <span class="service-icon">💍</span>
+        <div class="service-name">Svatby</div>
+        <p class="service-desc">Váš nejdůležitější den si zaslouží perfektní hudební doprovod. Konzultuji s vámi playlist předem a přizpůsobuji se průběhu celého večera — od prvního tance až do pozdních hodin.</p>
+      </div>
+      <div class="service-card reveal" style="transition-delay:0.2s">
+        <span class="service-icon">🏢</span>
+        <div class="service-name">Firemní večírky</div>
+        <p class="service-desc">Profesionální DJ s aparaturou a světelnými efekty. Mám reference od firem jako Hornbach a dalších. Postarám se o správnou atmosféru a energii celé akce.</p>
+      </div>
+      <div class="service-card reveal" style="transition-delay:0.3s">
+        <span class="service-icon">🎉</span>
+        <div class="service-name">Narozeninové oslavy</div>
+        <p class="service-desc">Oldies, hity, nebo specifický žánr? Zahraji v podstatě cokoliv a postarám se o to, aby se bavili hosté napříč všemi generacemi. Stará dobrá muzika nebo moderní klubové hity.</p>
+      </div>
+      <div class="service-card reveal" style="transition-delay:0.4s">
+        <span class="service-icon">🎵</span>
+        <div class="service-name">Kluby &amp; Sport</div>
+        <p class="service-desc">Resident DJ v Cafe 80's a Harlys Prague. Moderace sportovních akcí HC Slavia Praha a Rytíři Kladno. Zkušenosti s živým publikem a dynamickými atmosférami.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── RECENZE ─── -->
+<section id="reviews">
+  <div class="reviews-inner">
+    <div class="reveal">
+      <p class="section-label">Reference</p>
+      <h2 class="section-title">CO ŘÍKAJÍ<br>KLIENTI</h2>
+    </div>
+  </div>
+  <div class="reviews-track-wrap" style="margin-top:60px">
+    <div class="reviews-track" id="reviewsTrack">
+      <div class="review-card">
+        <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="review-quote">"</div>
+        <p class="review-text">Je to člověk, který je nejen upřímný, ale také rozumí tomu, jak to chodí. Dokáže vytvořit přesně takovou atmosféru, jakou si přejete.</p>
+        <div class="review-author">
+          <div class="review-name">Nicoletta Štěpánek</div>
+          <div class="review-event">Svatba</div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="review-quote">"</div>
+        <p class="review-text">Mattymu se povedlo trefit se do hudebního vkusu všech a rozjet neskutečnou oldies party. Všichni byli nadšeni!</p>
+        <div class="review-author">
+          <div class="review-name">Radim Valchář</div>
+          <div class="review-event">Oslava narozenin</div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="review-quote">"</div>
+        <p class="review-text">Byli jsme naprosto spokojeni a nadšeni. Matty odvedl skvělou práci a postaral se o nezapomenutelný hudební zážitek na naší svatbě.</p>
+        <div class="review-author">
+          <div class="review-name">Ondřej Touš</div>
+          <div class="review-event">Svatba</div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="review-quote">"</div>
+        <p class="review-text">Veškerá komunikace s Mattym byla od začátku bez sebemenších problémů. Matty se výborně dokázal přizpůsobit aktuální svatební atmosféře.</p>
+        <div class="review-author">
+          <div class="review-name">Petr Kadlec</div>
+          <div class="review-event">Svatba</div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="review-quote">"</div>
+        <p class="review-text">Byli jsme příjemně překvapeni! Je to velice spolehlivý člověk. Komunikace perfektní, výběr hudby přesně podle naší představy.</p>
+        <div class="review-author">
+          <div class="review-name">Eliška Hrušková</div>
+          <div class="review-event">Svatba</div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="review-quote">"</div>
+        <p class="review-text">Firemní večírek s Mattym byla naprostá bomba. Přijel s aparaturou i světelnými efekty. 100% spokojenost!</p>
+        <div class="review-author">
+          <div class="review-name">Terezie Holcmanová</div>
+          <div class="review-event">Firemní večírek · Hornbach</div>
+        </div>
+      </div>
+      <!-- Duplicate set for seamless loop -->
+      <div class="review-card">
+        <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="review-quote">"</div>
+        <p class="review-text">Je to člověk, který je nejen upřímný, ale také rozumí tomu, jak to chodí. Dokáže vytvořit přesně takovou atmosféru, jakou si přejete.</p>
+        <div class="review-author">
+          <div class="review-name">Nicoletta Štěpánek</div>
+          <div class="review-event">Svatba</div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="review-quote">"</div>
+        <p class="review-text">Mattymu se povedlo trefit se do hudebního vkusu všech a rozjet neskutečnou oldies party. Všichni byli nadšeni!</p>
+        <div class="review-author">
+          <div class="review-name">Radim Valchář</div>
+          <div class="review-event">Oslava narozenin</div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="review-quote">"</div>
+        <p class="review-text">Byli jsme naprosto spokojeni a nadšeni. Matty odvedl skvělou práci a postaral se o nezapomenutelný hudební zážitek na naší svatbě.</p>
+        <div class="review-author">
+          <div class="review-name">Ondřej Touš</div>
+          <div class="review-event">Svatba</div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="review-quote">"</div>
+        <p class="review-text">Veškerá komunikace s Mattym byla od začátku bez sebemenších problémů. Matty se výborně dokázal přizpůsobit aktuální svatební atmosféře.</p>
+        <div class="review-author">
+          <div class="review-name">Petr Kadlec</div>
+          <div class="review-event">Svatba</div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="review-quote">"</div>
+        <p class="review-text">Byli jsme příjemně překvapeni! Je to velice spolehlivý člověk. Komunikace perfektní, výběr hudby přesně podle naší představy.</p>
+        <div class="review-author">
+          <div class="review-name">Eliška Hrušková</div>
+          <div class="review-event">Svatba</div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="review-quote">"</div>
+        <p class="review-text">Firemní večírek s Mattym byla naprostá bomba. Přijel s aparaturou i světelnými efekty. 100% spokojenost!</p>
+        <div class="review-author">
+          <div class="review-name">Terezie Holcmanová</div>
+          <div class="review-event">Firemní večírek · Hornbach</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── GALERIE ─── -->
+<section id="gallery">
+  <div class="gallery-inner">
+    <div class="reveal">
+      <p class="section-label">Fotografie</p>
+      <h2 class="section-title">GALERIE</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="g-item reveal" onclick="openLightbox('images/IMG_5459.jpg')">
+        <img src="images/IMG_5459.jpg" alt="DJ MATTY" loading="lazy" />
+        <div class="g-overlay">
+          <svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+        </div>
+      </div>
+      <div class="g-item reveal" style="transition-delay:0.1s" onclick="openLightbox('images/IMG_6564.jpg')">
+        <img src="images/IMG_6564.jpg" alt="DJ MATTY" loading="lazy" />
+        <div class="g-overlay">
+          <svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+        </div>
+      </div>
+      <div class="g-item reveal" style="transition-delay:0.15s" onclick="openLightbox('images/IMG_4029.jpg')">
+        <img src="images/IMG_4029.jpg" alt="DJ MATTY" loading="lazy" />
+        <div class="g-overlay">
+          <svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+        </div>
+      </div>
+      <div class="g-item reveal" style="transition-delay:0.2s" onclick="openLightbox('images/IMG_5062.jpg')">
+        <img src="images/IMG_5062.jpg" alt="DJ MATTY" loading="lazy" />
+        <div class="g-overlay">
+          <svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+        </div>
+      </div>
+      <div class="g-item reveal" style="transition-delay:0.25s" onclick="openLightbox('images/IMG_7425.jpg')">
+        <img src="images/IMG_7425.jpg" alt="DJ MATTY" loading="lazy" />
+        <div class="g-overlay">
+          <svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+        </div>
+      </div>
+      <div class="g-item reveal" style="transition-delay:0.3s" onclick="openLightbox('images/matty_02.jpg')">
+        <img src="images/matty_02.jpg" alt="DJ MATTY" loading="lazy" />
+        <div class="g-overlay">
+          <svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox">
+  <span id="lightbox-close" onclick="closeLightbox()">✕</span>
+  <img id="lightbox-img" src="" alt="" />
+</div>
+
+<!-- ─── KDE HRAJI ─── -->
+<section id="venues">
+  <div class="venues-inner">
+    <div class="reveal">
+      <p class="section-label">Působiště</p>
+      <h2 class="section-title">KDE MĚ<br>NAJDETE</h2>
+    </div>
+    <div class="venues-grid" style="margin-top:60px">
+      <div class="venue-item reveal" style="transition-delay:0.05s">
+        <div class="venue-dot"></div>
+        <div>
+          <div class="venue-name">Cafe 80's</div>
+          <div class="venue-role">Resident &amp; Manager DJ</div>
+        </div>
+      </div>
+      <div class="venue-item reveal" style="transition-delay:0.1s">
+        <div class="venue-dot"></div>
+        <div>
+          <div class="venue-name">Harlys Prague</div>
+          <div class="venue-role">Resident DJ</div>
+        </div>
+      </div>
+      <div class="venue-item reveal" style="transition-delay:0.15s">
+        <div class="venue-dot"></div>
+        <div>
+          <div class="venue-name">PM Club</div>
+          <div class="venue-role">DJ</div>
+        </div>
+      </div>
+      <div class="venue-item reveal" style="transition-delay:0.2s">
+        <div class="venue-dot"></div>
+        <div>
+          <div class="venue-name">PartyBus</div>
+          <div class="venue-role">DJ</div>
+        </div>
+      </div>
+      <div class="venue-item reveal" style="transition-delay:0.25s">
+        <div class="venue-dot"></div>
+        <div>
+          <div class="venue-name">HC Slavia Praha</div>
+          <div class="venue-role">Moderace zápasů</div>
+        </div>
+      </div>
+      <div class="venue-item reveal" style="transition-delay:0.3s">
+        <div class="venue-dot"></div>
+        <div>
+          <div class="venue-name">Rytíři Kladno</div>
+          <div class="venue-role">DJ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── KONTAKT ─── -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-info-side reveal">
+      <p class="section-label">Kontakt</p>
+      <h2 class="section-title">POJĎME<br>SPOLUPRACOVAT</h2>
+      <p class="contact-tagline">
+        Máte zájem o spolupráci? Napište mi nebo zavolejte.
+        Rád prodiskutuji vaši akci a připravím individuální nabídku.
+      </p>
+      <div class="contact-details">
+        <div class="contact-item">
+          <div class="contact-icon">✉</div>
+          <a href="mailto:info@djmatty.cz">info@djmatty.cz</a>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">☏</div>
+          <a href="tel:+420775118192">+420 775 118 192</a>
+        </div>
+      </div>
+      <div class="social-links">
+        <a href="#" class="social-btn" aria-label="Facebook">f</a>
+        <a href="#" class="social-btn" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="contact-form-side reveal" style="transition-delay:0.15s">
+      <form onsubmit="return false;">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">Jméno</label>
+            <input type="text" id="fname" placeholder="Vaše jméno" />
+          </div>
+          <div class="form-group">
+            <label for="femail">E-mail</label>
+            <input type="email" id="femail" placeholder="vas@email.cz" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fphone">Telefon</label>
+            <input type="tel" id="fphone" placeholder="+420 xxx xxx xxx" />
+          </div>
+          <div class="form-group">
+            <label for="ftype">Typ akce</label>
+            <select id="ftype">
+              <option value="" disabled selected>Vyberte typ akce</option>
+              <option>Svatba</option>
+              <option>Firemní večírek</option>
+              <option>Narozeninová oslava</option>
+              <option>Klub / Bar</option>
+              <option>Jiné</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="fmsg">Zpráva</label>
+          <textarea id="fmsg" placeholder="Řekněte mi více o vaší akci — datum, místo, počet hostů..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Odeslat poptávku</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-logo">djMATTY</div>
+  <ul class="footer-links">
+    <li><a href="#about">O mně</a></li>
+    <li><a href="#services">Služby</a></li>
+    <li><a href="#reviews">Recenze</a></li>
+    <li><a href="#gallery">Galerie</a></li>
+    <li><a href="#contact">Kontakt</a></li>
+  </ul>
+  <p class="footer-copy">© 2025 DJ MATTY · Všechna práva vyhrazena</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
