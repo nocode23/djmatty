@@ -13,14 +13,16 @@ window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 60);
 });
 
-// ── Parallax hero bg
+// ── Parallax hero bg (desktop only)
 const heroBg = document.getElementById('heroBg');
-window.addEventListener('scroll', () => {
-  const scrolled = window.scrollY;
-  if (scrolled < window.innerHeight) {
-    heroBg.style.transform = `scale(1.05) translateY(${scrolled * 0.3}px)`;
-  }
-}, { passive: true });
+if (window.matchMedia('(min-width: 769px) and (hover: hover)').matches) {
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    if (scrolled < window.innerHeight) {
+      heroBg.style.transform = `scale(1.05) translateY(${scrolled * 0.3}px)`;
+    }
+  }, { passive: true });
+}
 
 // ── Intersection Observer for .reveal
 const observer = new IntersectionObserver((entries) => {
