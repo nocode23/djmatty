@@ -1,3 +1,15 @@
+// ── Sticky call bar (mobile, appears when #venues is reached)
+const stickyCall = document.getElementById('stickyCall');
+const venuesSection = document.getElementById('venues');
+function updateStickyCall() {
+  if (!stickyCall || !venuesSection) return;
+  stickyCall.classList.toggle('visible', venuesSection.getBoundingClientRect().top < window.innerHeight);
+}
+if (stickyCall && venuesSection) {
+  window.addEventListener('scroll', updateStickyCall, { passive: true });
+  updateStickyCall();
+}
+
 // ── Loader
 const loader = document.getElementById('loader');
 window.addEventListener('load', () => {
@@ -43,11 +55,13 @@ const hamburger = document.getElementById('hamburger');
 function openMobile() {
   mobileMenu.classList.add('open');
   document.body.style.overflow = 'hidden';
+  if (stickyCall) stickyCall.classList.remove('visible');
 }
 
 function closeMobile() {
   mobileMenu.classList.remove('open');
   document.body.style.overflow = '';
+  if (stickyCall) updateStickyCall();
 }
 
 hamburger.addEventListener('click', () => {
@@ -148,18 +162,6 @@ document.addEventListener('keydown', (e) => {
   });
 }());
 
-// ── Sticky call bar (mobile, appears when #venues is reached)
-const stickyCall = document.getElementById('stickyCall');
-if (stickyCall) {
-  const venues = document.getElementById('venues');
-  if (venues) {
-    function updateStickyCall() {
-      stickyCall.classList.toggle('visible', venues.getBoundingClientRect().top < window.innerHeight);
-    }
-    window.addEventListener('scroll', updateStickyCall, { passive: true });
-    updateStickyCall();
-  }
-}
 
 // ── Counter animation
 const counters = document.querySelectorAll('.counter');
