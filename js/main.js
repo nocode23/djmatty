@@ -153,12 +153,11 @@ const stickyCall = document.getElementById('stickyCall');
 if (stickyCall) {
   const venues = document.getElementById('venues');
   if (venues) {
-    const venuesObserver = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        stickyCall.classList.toggle('visible', e.isIntersecting || e.boundingClientRect.top < 0);
-      });
-    }, { threshold: 0 });
-    venuesObserver.observe(venues);
+    function updateStickyCall() {
+      stickyCall.classList.toggle('visible', venues.getBoundingClientRect().top < window.innerHeight);
+    }
+    window.addEventListener('scroll', updateStickyCall, { passive: true });
+    updateStickyCall();
   }
 }
 
