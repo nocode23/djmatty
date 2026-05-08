@@ -91,13 +91,20 @@ nav.scrolled {
 }
 
 .nav-logo {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 800;
-  font-size: 28px;
-  color: var(--red);
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  letter-spacing: 2px;
+  flex-shrink: 0;
 }
+
+.nav-logo img {
+  height: 36px;
+  width: auto;
+  display: block;
+  transition: opacity 0.3s;
+}
+
+.nav-logo:hover img { opacity: 0.8; }
 
 .nav-links {
   display: flex;
@@ -982,12 +989,11 @@ footer {
   gap: 20px;
 }
 
-.footer-logo {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 800;
-  font-size: 24px;
-  color: var(--red);
-  letter-spacing: 1px;
+.footer-logo img {
+  height: 28px;
+  width: auto;
+  display: block;
+  opacity: 0.85;
 }
 
 .footer-links {
