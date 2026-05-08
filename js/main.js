@@ -147,3 +147,37 @@ document.addEventListener('keydown', (e) => {
     resumeTimer = setTimeout(() => resume(offset), 2000);
   });
 }());
+
+// ── Sticky call bar (mobile, appears after hero)
+const stickyCall = document.getElementById('stickyCall');
+if (stickyCall) {
+  const heroHeight = document.getElementById('hero')?.offsetHeight || window.innerHeight;
+  window.addEventListener('scroll', () => {
+    stickyCall.classList.toggle('visible', window.scrollY > heroHeight * 0.6);
+  }, { passive: true });
+}
+
+// ── Counter animation
+const counters = document.querySelectorAll('.counter');
+if (counters.length) {
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = +el.dataset.target;
+      const duration = 1400;
+      const step = 16;
+      const steps = duration / step;
+      let current = 0;
+      const increment = target / steps;
+      const timer = setInterval(() => {
+        current = Math.min(current + increment, target);
+        el.textContent = Math.floor(current);
+        if (current >= target) clearInterval(timer);
+      }, step);
+      counterObserver.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(c => counterObserver.observe(c));
+}

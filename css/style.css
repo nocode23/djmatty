@@ -1028,3 +1028,44 @@ footer {
   }
   .footer-links { flex-wrap: wrap; justify-content: center; gap: 20px; }
 }
+
+/* ── Sticky call bar (mobile only) ── */
+#stickyCall {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background: var(--red);
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#stickyCall.visible {
+  transform: translateY(0);
+}
+
+#stickyCallLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 24px;
+  color: var(--white);
+  text-decoration: none;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+#stickyCallLink svg {
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  #stickyCall {
+    display: block;
+  }
+}
