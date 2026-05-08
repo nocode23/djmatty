@@ -14,6 +14,20 @@
 
 html { scroll-behavior: smooth; }
 
+/* Cover iOS Safari safe-area at bottom so it never tints chrome red */
+body::after {
+  content: '';
+  display: block;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: env(safe-area-inset-bottom, 0px);
+  background: var(--bg);
+  z-index: 199;
+  pointer-events: none;
+}
+
 body {
   background: var(--bg);
   color: var(--white);
