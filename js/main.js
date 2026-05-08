@@ -148,13 +148,18 @@ document.addEventListener('keydown', (e) => {
   });
 }());
 
-// ── Sticky call bar (mobile, appears after hero)
+// ── Sticky call bar (mobile, appears when #venues is reached)
 const stickyCall = document.getElementById('stickyCall');
 if (stickyCall) {
-  const heroHeight = document.getElementById('hero')?.offsetHeight || window.innerHeight;
-  window.addEventListener('scroll', () => {
-    stickyCall.classList.toggle('visible', window.scrollY > heroHeight * 0.6);
-  }, { passive: true });
+  const venues = document.getElementById('venues');
+  if (venues) {
+    const venuesObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        stickyCall.classList.toggle('visible', e.isIntersecting || e.boundingClientRect.top < 0);
+      });
+    }, { threshold: 0 });
+    venuesObserver.observe(venues);
+  }
 }
 
 // ── Counter animation
