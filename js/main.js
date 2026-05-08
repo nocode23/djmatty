@@ -4,7 +4,7 @@ window.addEventListener('load', () => {
   setTimeout(() => {
     loader.classList.add('hide');
     setTimeout(() => { loader.style.display = 'none'; }, 800);
-  }, 3600);
+  }, 3000);
 });
 
 // ── Nav scroll
