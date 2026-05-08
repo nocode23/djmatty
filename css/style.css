@@ -810,6 +810,11 @@ section { padding: 120px 60px; }
   object-fit: contain;
 }
 
+.venue-logo-wrap--dark {
+  background: #1a1a1a;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
 .venue-name {
   font-family: 'Outfit', sans-serif;
   font-weight: 700;
