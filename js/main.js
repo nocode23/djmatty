@@ -1,18 +1,3 @@
-// ── Sticky call bar (mobile only, display toggled by JS)
-const stickyCall = document.getElementById('stickyCall');
-const venuesSection = document.getElementById('venues');
-function updateStickyCall() {
-  if (!stickyCall || !venuesSection) return;
-  const isMobile = window.innerWidth <= 768;
-  const venuesPassed = venuesSection.getBoundingClientRect().top < window.innerHeight;
-  stickyCall.style.display = (isMobile && venuesPassed) ? 'block' : 'none';
-}
-if (stickyCall && venuesSection) {
-  window.addEventListener('scroll', updateStickyCall, { passive: true });
-  window.addEventListener('resize', updateStickyCall, { passive: true });
-  updateStickyCall();
-}
-
 // ── Loader
 const loader = document.getElementById('loader');
 window.addEventListener('load', () => {
@@ -58,13 +43,11 @@ const hamburger = document.getElementById('hamburger');
 function openMobile() {
   mobileMenu.classList.add('open');
   document.body.style.overflow = 'hidden';
-  if (stickyCall) stickyCall.style.display = 'none';
 }
 
 function closeMobile() {
   mobileMenu.classList.remove('open');
   document.body.style.overflow = '';
-  if (stickyCall) updateStickyCall();
 }
 
 hamburger.addEventListener('click', () => {

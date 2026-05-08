@@ -14,19 +14,6 @@
 
 html { scroll-behavior: smooth; color-scheme: dark; }
 
-/* Cover iOS Safari safe-area at bottom so it never tints chrome red */
-body::after {
-  content: '';
-  display: block;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: env(safe-area-inset-bottom, 0px);
-  background: var(--bg);
-  z-index: 199;
-  pointer-events: none;
-}
 
 body {
   background: var(--bg);
@@ -1043,32 +1030,3 @@ footer {
   .footer-links { flex-wrap: wrap; justify-content: center; gap: 20px; }
 }
 
-/* ── Sticky call bar (mobile only, JS controls display) ── */
-#stickyCall {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 200;
-  background: var(--red);
-  padding-bottom: env(safe-area-inset-bottom);
-}
-
-#stickyCallLink {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 16px 24px;
-  color: var(--white);
-  text-decoration: none;
-  font-family: 'Outfit', sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  letter-spacing: 0.5px;
-}
-
-#stickyCallLink svg {
-  flex-shrink: 0;
-}
