@@ -1,4 +1,6 @@
 // ── Loader
+// Skryje loader po 3 sekundách: přidá třídu .hide (spustí CSS fade animaci),
+// po dalších 0.8s nastaví display:none (loader již nepřekáží klikání).
 const loader = document.getElementById('loader');
 window.addEventListener('load', () => {
   setTimeout(() => {
@@ -8,12 +10,16 @@ window.addEventListener('load', () => {
 });
 
 // ── Nav scroll
+// Přidá třídu .scrolled na <nav> při odrolování > 60px — aktivuje tmavé pozadí s blur.
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 60);
 });
 
 // ── Parallax hero bg (desktop only)
+// Pouze na desktopu s myší (hover: hover) — na dotykových zařízeních by parallax byl trhavý.
+// Posune hero pozadí o 30 % hodnoty scrollu dolů (vizuální hloubka).
+// Zastaví se po odrolování mimo hero sekci (> výška okna).
 const heroBg = document.getElementById('heroBg');
 if (window.matchMedia('(min-width: 769px) and (hover: hover)').matches) {
   window.addEventListener('scroll', () => {
@@ -25,6 +31,10 @@ if (window.matchMedia('(min-width: 769px) and (hover: hover)').matches) {
 }
 
 // ── Intersection Observer for .reveal
+// Sleduje všechny elementy s třídou .reveal.
+// Jakmile element vstoupí do viewportu (alespoň 12 %), přidá třídu .visible
+// (CSS přechod: opacity + translateY → viditelné, na místě).
+// unobserve() zabrání opakovanému spouštění animace.
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
@@ -37,6 +47,9 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 // ── Mobile menu
+// openMobile: přidá třídu .open (menu se zobrazí), zablokuje scroll stránky.
+// closeMobile: odebere .open, obnoví scroll.
+// Menu se zavře kliknutím na odkaz, tlačítko ✕ nebo kliknutím mimo menu (backdrop).
 const mobileMenu = document.getElementById('mobileMenu');
 const hamburger = document.getElementById('hamburger');
 
@@ -57,11 +70,15 @@ hamburger.addEventListener('click', () => {
 document.getElementById('mobileClose').addEventListener('click', closeMobile);
 mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobile));
 
+// Klik na tmavé pozadí (mimo panel) menu zavře
 mobileMenu.addEventListener('click', (e) => {
   if (e.target === mobileMenu) closeMobile();
 });
 
 // ── Lightbox
+// openLightbox(src): nastaví src obrázku a zobrazí overlay (#lightbox.open → display:flex).
+// closeLightbox: skryje overlay.
+// Zavírání: klik mimo obrázek (na overlay) nebo klávesa Escape.
 function openLightbox(src) {
   document.getElementById('lightbox-img').src = src;
   document.getElementById('lightbox').classList.add('open');
@@ -82,6 +99,12 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ── Reviews touch drag / tap-to-pause
+// Ovládání karuselu dotykem na mobilech:
+//   - tap (bez tahu): přepne pauzu / přehrávání animace
+//   - drag (tah > 6px): ručně posune karty; po 2 s se animace obnoví od aktuální pozice
+// getOffset(): čte aktuální translateX z computed stylu (DOMMatrix).
+// resume(offset): restartuje CSS animaci s upraveným delay tak, aby navázala na pozici.
+// pause(): zastaví animaci a zafixuje pozici pomocí style.transform.
 (function () {
   const track = document.getElementById('reviewsTrack');
   if (!track) return;
@@ -150,6 +173,9 @@ document.addEventListener('keydown', (e) => {
 
 
 // ── Counter animation
+// Pro každý element .counter: při vstupu do viewportu (threshold 50 %) spustí
+// počítání od 0 do hodnoty data-target za 1400 ms (setInterval po 16 ms ≈ 60 fps).
+// data-target je nastaven přímo v HTML, např.: <span class="counter" data-target="14">
 const counters = document.querySelectorAll('.counter');
 if (counters.length) {
   const counterObserver = new IntersectionObserver((entries) => {
@@ -175,7 +201,25 @@ if (counters.length) {
 }
 
 
+// ── Date picker (Flatpickr)
+// Nahrazuje nativní input[type="date"] vlastním kalendářem — větší, tmavý, česky.
+// dateFormat 'd.m.Y' → hodnota v emailu bude "15.07.2026".
+// minDate: 'today' zabrání výběru minulých termínů.
+if (document.getElementById('fdate')) {
+  flatpickr('#fdate', {
+    locale: 'cs',
+    dateFormat: 'd.m.Y',
+    minDate: 'today',
+    disableMobile: false,
+  });
+}
+
 // ── Contact form (Web3Forms)
+// Odešle formulář na Web3Forms API (https://api.web3forms.com/submit) jako FormData.
+// Access key je v hidden poli formuláře — identifikuje cílový e-mail.
+// Při úspěchu: zobrazí #formSuccess, vymaže formulář.
+// Při chybě (síť nebo API): zobrazí #formError.
+// Tlačítko je během odesílání deaktivováno (disabled), aby se zabránilo duplicitnímu odeslání.
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
   contactForm.addEventListener('submit', async (e) => {

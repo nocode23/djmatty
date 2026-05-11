@@ -76,7 +76,8 @@
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
   <meta name="theme-color" content="#080808" />
-  <link rel="stylesheet" href="css/style.css?v=6" />
+  <link rel="stylesheet" href="css/style.css?v=7" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
 </head>
 <body>
 
@@ -502,8 +503,12 @@
           </div>
         </div>
         <div class="form-group">
+          <label for="fdate">Datum akce</label>
+          <input type="date" id="fdate" name="datum_akce" />
+        </div>
+        <div class="form-group">
           <label for="fmsg">Zpráva</label>
-          <textarea id="fmsg" name="message" placeholder="Řekněte mi více o vaší akci — datum, místo, počet hostů..."></textarea>
+          <textarea id="fmsg" name="message" placeholder="Řekněte mi více o vaší akci — místo, počet hostů..."></textarea>
         </div>
         <button type="submit" class="form-submit" id="formSubmitBtn">Odeslat poptávku</button>
       </form>
@@ -524,6 +529,8 @@
   <p class="footer-copy">© 2025 DJ MATTY · Všechna práva vyhrazena</p>
 </footer>
 
-<script src="js/main.js?v=4"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/cs.js"></script>
+<script src="js/main.js?v=5"></script>
 </body>
 </html>
