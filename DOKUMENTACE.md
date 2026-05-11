@@ -29,6 +29,7 @@ djmatty/
 ├── images/             ← fotografie, loga, favicony, OG obrázek
 ├── robots.txt          ← instrukce pro roboty vyhledávačů
 ├── sitemap.xml         ← mapa stránek pro Google
+├── DOKUMENTACE.md      ← tento soubor
 └── CLAUDE.md           ← instrukce pro AI asistenta
 ```
 
