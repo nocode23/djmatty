@@ -417,30 +417,32 @@
       </div>
     </div>
     <div class="contact-form-side reveal" style="transition-delay:0.15s">
-      <div data-fs-success class="form-feedback form-feedback--success">✓ Zpráva odeslána! Ozvu se co nejdříve.</div>
-      <div data-fs-error class="form-feedback form-feedback--error">Něco se pokazilo. Zkuste to prosím znovu.</div>
+      <div id="formSuccess" class="form-feedback form-feedback--success">✓ Zpráva odeslána! Ozvu se co nejdříve.</div>
+      <div id="formError" class="form-feedback form-feedback--error">Něco se pokazilo. Zkuste to prosím znovu.</div>
 
       <form id="contactForm">
+        <input type="hidden" name="access_key" value="ffcf9aa4-97c7-4f0f-bae8-62b28dacb083" />
+        <input type="hidden" name="subject" value="Nová poptávka z djmatty.cz" />
+        <input type="hidden" name="from_name" value="DJ MATTY web" />
+        <input type="checkbox" name="botcheck" style="display:none" />
         <div class="form-row">
           <div class="form-group">
             <label for="fname">Jméno</label>
-            <input type="text" id="fname" name="name" placeholder="Vaše jméno" required data-fs-field />
-            <span data-fs-error="name" class="field-error"></span>
+            <input type="text" id="fname" name="name" placeholder="Vaše jméno" required />
           </div>
           <div class="form-group">
             <label for="femail">E-mail</label>
-            <input type="email" id="femail" name="email" placeholder="vas@email.cz" required data-fs-field />
-            <span data-fs-error="email" class="field-error"></span>
+            <input type="email" id="femail" name="email" placeholder="vas@email.cz" required />
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
             <label for="fphone">Telefon</label>
-            <input type="tel" id="fphone" name="phone" placeholder="+420 xxx xxx xxx" data-fs-field />
+            <input type="tel" id="fphone" name="phone" placeholder="+420 xxx xxx xxx" />
           </div>
           <div class="form-group">
             <label for="ftype">Typ akce</label>
-            <select id="ftype" name="type_akce" data-fs-field>
+            <select id="ftype" name="type_akce">
               <option value="" disabled selected>Vyberte typ akce</option>
               <option>Svatba</option>
               <option>Firemní večírek</option>
@@ -452,17 +454,10 @@
         </div>
         <div class="form-group">
           <label for="fmsg">Zpráva</label>
-          <textarea id="fmsg" name="message" placeholder="Řekněte mi více o vaší akci — datum, místo, počet hostů..." data-fs-field></textarea>
-          <span data-fs-error="message" class="field-error"></span>
+          <textarea id="fmsg" name="message" placeholder="Řekněte mi více o vaší akci — datum, místo, počet hostů..."></textarea>
         </div>
-        <button type="submit" class="form-submit" data-fs-submit-btn>Odeslat poptávku</button>
+        <button type="submit" class="form-submit" id="formSubmitBtn">Odeslat poptávku</button>
       </form>
-
-      <script>
-        window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-        formspree('initForm', { formElement: '#contactForm', formId: 'xlgzakgk' });
-      </script>
-      <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
     </div>
   </div>
 </section>
