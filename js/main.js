@@ -174,37 +174,3 @@ if (counters.length) {
   counters.forEach(c => counterObserver.observe(c));
 }
 
-// ── Contact form (Formspree)
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-  contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const btn = document.getElementById('formSubmitBtn');
-    const success = document.getElementById('formSuccess');
-    const error = document.getElementById('formError');
-
-    btn.disabled = true;
-    btn.textContent = 'Odesílám...';
-    success.style.display = 'none';
-    error.style.display = 'none';
-
-    try {
-      const res = await fetch(contactForm.action, {
-        method: 'POST',
-        body: new FormData(contactForm),
-        headers: { 'Accept': 'application/json' }
-      });
-      if (res.ok) {
-        success.style.display = 'block';
-        contactForm.reset();
-      } else {
-        error.style.display = 'block';
-      }
-    } catch {
-      error.style.display = 'block';
-    }
-
-    btn.disabled = false;
-    btn.textContent = 'Odeslat poptávku';
-  });
-}
