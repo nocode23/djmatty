@@ -173,3 +173,38 @@ if (counters.length) {
 
   counters.forEach(c => counterObserver.observe(c));
 }
+
+// ── Contact form (Web3Forms)
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('formSubmitBtn');
+    const success = document.getElementById('formSuccess');
+    const error = document.getElementById('formError');
+
+    btn.disabled = true;
+    btn.textContent = 'Odesílám...';
+    success.style.display = 'none';
+    error.style.display = 'none';
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(contactForm)
+      });
+      const data = await res.json();
+      if (data.success) {
+        success.style.display = 'block';
+        contactForm.reset();
+      } else {
+        error.style.display = 'block';
+      }
+    } catch {
+      error.style.display = 'block';
+    }
+
+    btn.disabled = false;
+    btn.textContent = 'Odeslat poptávku';
+  });
+}

@@ -417,25 +417,29 @@
       </div>
     </div>
     <div class="contact-form-side reveal" style="transition-delay:0.15s">
-      <form onsubmit="return false;">
+      <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="ffcf9aa4-97c7-4f0f-bae8-62b28dacb083" />
+        <input type="hidden" name="subject" value="Nová poptávka z djmatty.cz" />
+        <input type="hidden" name="from_name" value="DJ MATTY web" />
+        <input type="checkbox" name="botcheck" style="display:none" />
         <div class="form-row">
           <div class="form-group">
             <label for="fname">Jméno</label>
-            <input type="text" id="fname" placeholder="Vaše jméno" />
+            <input type="text" id="fname" name="name" placeholder="Vaše jméno" required />
           </div>
           <div class="form-group">
             <label for="femail">E-mail</label>
-            <input type="email" id="femail" placeholder="vas@email.cz" />
+            <input type="email" id="femail" name="email" placeholder="vas@email.cz" required />
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
             <label for="fphone">Telefon</label>
-            <input type="tel" id="fphone" placeholder="+420 xxx xxx xxx" />
+            <input type="tel" id="fphone" name="phone" placeholder="+420 xxx xxx xxx" />
           </div>
           <div class="form-group">
             <label for="ftype">Typ akce</label>
-            <select id="ftype">
+            <select id="ftype" name="type_akce">
               <option value="" disabled selected>Vyberte typ akce</option>
               <option>Svatba</option>
               <option>Firemní večírek</option>
@@ -447,9 +451,11 @@
         </div>
         <div class="form-group">
           <label for="fmsg">Zpráva</label>
-          <textarea id="fmsg" placeholder="Řekněte mi více o vaší akci — datum, místo, počet hostů..."></textarea>
+          <textarea id="fmsg" name="message" placeholder="Řekněte mi více o vaší akci — datum, místo, počet hostů..."></textarea>
         </div>
-        <button type="submit" class="form-submit">Odeslat poptávku</button>
+        <button type="submit" class="form-submit" id="formSubmitBtn">Odeslat poptávku</button>
+        <div id="formSuccess" style="display:none; margin-top:16px; color:#4ade80; font-size:15px;">✓ Zpráva odeslána! Ozvu se co nejdříve.</div>
+        <div id="formError" style="display:none; margin-top:16px; color:#f87171; font-size:15px;">Něco se pokazilo. Zkuste to prosím znovu.</div>
       </form>
     </div>
   </div>
