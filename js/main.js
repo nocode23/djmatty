@@ -174,7 +174,7 @@ if (counters.length) {
   counters.forEach(c => counterObserver.observe(c));
 }
 
-// ── Contact form (Web3Forms)
+// ── Contact form (Formspree)
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
   contactForm.addEventListener('submit', async (e) => {
@@ -189,12 +189,12 @@ if (contactForm) {
     error.style.display = 'none';
 
     try {
-      const res = await fetch('https://api.web3forms.com/submit', {
+      const res = await fetch(contactForm.action, {
         method: 'POST',
-        body: new FormData(contactForm)
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' }
       });
-      const data = await res.json();
-      if (data.success) {
+      if (res.ok) {
         success.style.display = 'block';
         contactForm.reset();
       } else {
