@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nocode23.github.io/djmatty/sitemap.xml
