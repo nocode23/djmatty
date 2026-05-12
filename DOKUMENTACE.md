@@ -430,8 +430,8 @@ Soubor: `images/og-image.jpg` — rozměr 1200×630 px.
 
 Při změně obrázku musíte aktualizovat i cesty v `<head>`:
 ```html
-<meta property="og:image" content="https://nocode23.github.io/djmatty/images/NOVY_OBRAZEK.jpg" />
-<meta name="twitter:image" content="https://nocode23.github.io/djmatty/images/NOVY_OBRAZEK.jpg" />
+<meta property="og:image" content="https://www.djmatty.cz/images/NOVY_OBRAZEK.jpg" />
+<meta name="twitter:image" content="https://www.djmatty.cz/images/NOVY_OBRAZEK.jpg" />
 ```
 
 ### Sitemap a robots.txt
@@ -441,21 +441,14 @@ Při změně obrázku musíte aktualizovat i cesty v `<head>`:
 
 ---
 
-## 10. Přechod na vlastní doménu
+## 10. Vlastní doména djmatty.cz
 
-Až bude web nasazen na `djmatty.cz`, je třeba aktualizovat URL na více místech v `index.html`:
+Web je připraven na doménu `https://www.djmatty.cz/`. Všechny SEO prvky (canonical, og:url, og:image, twitter:image, JSON-LD, robots.txt, sitemap.xml) již odkazují na tuto doménu.
 
-| Kde                             | Co změnit                                              |
-|---------------------------------|--------------------------------------------------------|
-| `<link rel="canonical">`        | `https://nocode23.github.io/djmatty/` → `https://djmatty.cz/` |
-| `<meta property="og:url">`      | stejná změna                                           |
-| `<meta property="og:image">`    | URL s novou doménou                                    |
-| `<meta name="twitter:image">`   | URL s novou doménou                                    |
-| `<script type="application/ld+json">` | pole `"url"` a `"image"`                        |
-
-Také aktualizujte:
-- `robots.txt` — řádek `Sitemap:` na novou doménu
-- `sitemap.xml` — `<loc>` na novou doménu
+**Zbývá nastavit na straně GitHubu:**
+1. V repozitáři → Settings → Pages → Custom domain: zadejte `www.djmatty.cz`
+2. U DNS registrátora přidejte CNAME záznam: `www` → `nocode23.github.io`
+3. GitHub automaticky vygeneruje SSL certifikát (může trvat až 24 h)
 
 ---
 
