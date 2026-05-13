@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Project
 
 Static single-page website for DJ MATTY (djmatty.cz) — a professional DJ based in Prague.  
-Single file: `index.html` (HTML + embedded CSS + vanilla JS, no build step).
+No build step — plain HTML, CSS, and vanilla JS.
 
 ## Running locally
 
@@ -17,13 +17,28 @@ npx serve .
 python3 -m http.server 8080
 ```
 
+## File structure
+
+```
+index.html          # markup
+css/
+  style.css         # main styles (cache bust: ?v=N)
+  fonts.css         # @font-face declarations
+js/
+  main.js           # all JavaScript (cache bust: ?v=N)
+fonts/              # self-hosted woff2 (Anton, Barlow Condensed, Outfit)
+images/             # locally hosted photos, logos, favicon, og-image
+robots.txt
+sitemap.xml
+```
+
+**Cache busting:** increment `?v=N` in `index.html` for `style.css` and `main.js` after any notable change.
+
 ## Architecture
 
-Everything lives in `index.html`:
-
-- **Styles** — embedded `<style>` block with CSS custom properties (`--red: #E31E24`, `--bg`, etc.)
 - **Markup** — semantic sections with IDs: `#hero`, `#about`, `#services`, `#reviews`, `#gallery`, `#venues`, `#contact`
-- **Scripts** — inline `<script>` at bottom; no external JS libraries
+- **Styles** — CSS custom properties in `css/style.css` (`--red: #E31E24`, `--bg`, `--bg2`, `--bg3`, etc.)
+- **Fonts** — self-hosted woff2 declared in `css/fonts.css`: Anton (hero), Barlow Condensed (headings), Outfit (body)
 
 ### Key design decisions
 
@@ -32,13 +47,11 @@ Everything lives in `index.html`:
 - **Scroll reveals** — `IntersectionObserver` toggles `.visible` on `.reveal` elements.
 - **Parallax** — hero background `translateY` driven by `scroll` event listener.
 - **Lightbox** — CSS `display:flex` toggle on `#lightbox`, no library needed.
-
-## Content source
-
-All photos served directly from `djmatty.cz/wp-content/uploads/2026/03/`. If the source site changes or goes down, images will break — download and host locally if needed.
+- **Contact form** — Web3Forms, access_key `ffcf9aa4-97c7-4f0f-bae8-62b28dacb083`, free tier 250 msg/month.
+- **Date picker** — Flatpickr from CDN (jsdelivr.net), field `#fdate`, format `d.m.Y`, `minDate: 'today'`, locale `cs`.
 
 ## Brand
 
 - Red: `#E31E24`
-- Fonts: Bebas Neue (headings), Outfit (body) — loaded from Google Fonts
-- Dark theme only: `#080808` background
+- Background: `#080808` (dark theme only)
+- Fonts: Anton (hero), Barlow Condensed 700/800 (headings), Outfit (body)
