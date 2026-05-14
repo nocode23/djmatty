@@ -42,7 +42,7 @@ Web je **čistý statický HTML soubor** — žádný build, žádné závislost
 | ID sekce    | Název             | Popis                                      |
 |-------------|-------------------|--------------------------------------------|
 | `#hero`     | Úvodní hero       | Velký titulek, foto v pozadí, CTA tlačítko |
-| `#about`    | O mně             | Foto + text + statistiky (14+, 100+, ★★★★★) |
+| `#about`    | O mně             | Foto + text + statistiky (16+, 3300+, ★★★★★) |
 | `#services` | Služby            | 4 karty: Svatby, Firemní večírky, Narozeniny, Kluby |
 | `#reviews`  | Recenze           | Automaticky rolující karusel s 6 recenzemi  |
 | `#gallery`  | Galerie           | Mřížka 6 fotek, klik otevře lightbox        |
@@ -64,7 +64,7 @@ Všechny texty jsou přímo v souboru **`index.html`**. Otevřete ho v textovém
 
 <p class="hero-eyebrow">Profesionální DJ · Praha &amp; celá ČR</p>
 <h1 class="hero-title"><span>ROZTANČÍM</span><br>KAŽDOU<br><span>VAŠI AKCI</span></h1>
-<p class="hero-sub">14 LET ZKUŠENOSTÍ · PŘIZPŮSOBÍM SE KAŽDÉ AKCI</p>
+<p class="hero-sub">16 LET ZKUŠENOSTÍ · PŘIZPŮSOBÍM SE KAŽDÉ AKCI</p>
 ```
 
 - Slova ve `<span>` jsou zobrazena červeně.
@@ -75,17 +75,17 @@ Všechny texty jsou přímo v souboru **`index.html`**. Otevřete ho v textovém
 ```html
 <!-- hledejte sekci: ─── O MNĚ ─── -->
 
-<h2 class="section-title">14 LET ZA<br>MIXPULTEM</h2>
+<h2 class="section-title">16 LET ZA<br>MIXPULTEM</h2>
 <p>
-  Jsem multižánrový DJ s více než 14 lety zkušeností...
+  Jsem multižánrový DJ s více než 16 lety zkušeností...
 </p>
 ```
 
-### Statistiky (14+, 100+, hvězdičky)
+### Statistiky (16+, 3300+, hvězdičky)
 
 ```html
-<span class="counter" data-target="14">0</span>
-<span class="counter" data-target="100">0</span>
+<span class="counter" data-target="16">0</span>
+<span class="counter" data-target="3300">0</span>
 ```
 
 Číslo v `data-target` určuje konečnou hodnotu animace. Počáteční hodnota `0` je přepsána animací při rolování.
