@@ -382,6 +382,7 @@ section { padding: 120px 60px; }
 
 @media (max-width: 480px) {
   .hero-eyebrow { font-size: 11px; letter-spacing: 2px; }
+  .hero-title { margin-top: 120px; }
   .hero-sub { font-size: 12px; letter-spacing: 1px; }
   .hero-btn { padding: 14px 28px; font-size: 12px; }
   .scroll-indicator { display: none; }
