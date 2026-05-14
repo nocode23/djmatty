@@ -173,9 +173,8 @@ document.addEventListener('keydown', (e) => {
 
 
 // ── Counter animation
-// Pro každý element .counter: při vstupu do viewportu (threshold 50 %) spustí
-// počítání od 0 do hodnoty data-target za 1400 ms (setInterval po 16 ms ≈ 60 fps).
-// data-target je nastaven přímo v HTML, např.: <span class="counter" data-target="14">
+// requestAnimationFrame s easeOutCubic — plynulé zpomalení na konci.
+// Pevná šířka v CSS (min-width: 5ch) brání přeskakování layoutu při změně počtu číslic.
 const counters = document.querySelectorAll('.counter');
 if (counters.length) {
   const counterObserver = new IntersectionObserver((entries) => {
@@ -183,16 +182,16 @@ if (counters.length) {
       if (!entry.isIntersecting) return;
       const el = entry.target;
       const target = +el.dataset.target;
-      const duration = 1400;
-      const step = 16;
-      const steps = duration / step;
-      let current = 0;
-      const increment = target / steps;
-      const timer = setInterval(() => {
-        current = Math.min(current + increment, target);
-        el.textContent = Math.floor(current);
-        if (current >= target) clearInterval(timer);
-      }, step);
+      const duration = 1800;
+      const startTime = performance.now();
+      function step(now) {
+        const t = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = Math.floor(eased * target);
+        if (t < 1) requestAnimationFrame(step);
+        else el.textContent = target;
+      }
+      requestAnimationFrame(step);
       counterObserver.unobserve(el);
     });
   }, { threshold: 0.5 });

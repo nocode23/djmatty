@@ -487,6 +487,8 @@ section { padding: 120px 60px; }
   font-size: 64px;
   color: var(--red);
   line-height: 1;
+  font-variant-numeric: tabular-nums;
+  min-width: 5ch;
 }
 
 .stat-label {
