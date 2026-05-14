@@ -1,13 +1,5 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-@property --c16 { syntax: '<integer>'; initial-value: 0; inherits: false; }
-@property --c3300 { syntax: '<integer>'; initial-value: 0; inherits: false; }
-@keyframes count16   { to { --c16:   16; } }
-@keyframes count3300 { to { --c3300: 3300; } }
-
-.counter-16   { counter-reset: n var(--c16);   }
-.counter-3300 { counter-reset: n var(--c3300); }
-.counter-16::before, .counter-3300::before { content: counter(n); }
 
 /* Globální CSS proměnné — změnou zde se aktualizuje celý web */
 :root {
@@ -497,7 +489,7 @@ section { padding: 120px 60px; }
   color: var(--red);
   line-height: 1;
   font-variant-numeric: tabular-nums;
-  min-width: 5ch;
+  min-width: 6ch;
 }
 
 
