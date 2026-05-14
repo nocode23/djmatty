@@ -305,6 +305,7 @@ nav.scrolled {
   transform: translateY(20px);
   animation: fadeUp 0.8s ease forwards 4.5s;
 }
+.hero-sub-br { display: none; }
 
 .hero-btn {
   display: inline-block;
@@ -384,6 +385,8 @@ section { padding: 120px 60px; }
   .hero-sub { font-size: 12px; letter-spacing: 1px; }
   .hero-btn { padding: 14px 28px; font-size: 12px; }
   .scroll-indicator { display: none; }
+  .hero-sub-sep { display: none; }
+  .hero-sub-br { display: inline; }
 }
 
 .section-label {
