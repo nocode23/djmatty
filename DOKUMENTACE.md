@@ -39,15 +39,15 @@ Web je **čistý statický HTML soubor** — žádný build, žádné závislost
 
 ## 2. Přehled sekcí stránky
 
-| ID sekce    | Název             | Popis                                      |
-|-------------|-------------------|--------------------------------------------|
-| `#hero`     | Úvodní hero       | Velký titulek, foto v pozadí, CTA tlačítko |
-| `#about`    | O mně             | Foto + text + statistiky (16+, 3300+, ★★★★★) |
-| `#services` | Služby            | 4 karty: Svatby, Firemní večírky, Narozeniny, Kluby |
-| `#reviews`  | Recenze           | Automaticky rolující karusel s 6 recenzemi  |
-| `#gallery`  | Galerie           | Mřížka 6 fotek, klik otevře lightbox        |
-| `#venues`   | Kde mě najdete    | 6 dlaždic s místy vystoupení                |
-| `#contact`  | Kontakt           | Kontaktní info + formulář (Web3Forms)       |
+| ID sekce    | Název             | Pořadí | Popis                                      |
+|-------------|-------------------|--------|--------------------------------------------|
+| `#hero`     | Úvodní hero       | 1      | Velký titulek, foto v pozadí, CTA tlačítko |
+| `#about`    | O mně             | 2      | Foto + text + statistiky (16+, 3300+, ★★★★★) |
+| `#reviews`  | Reference         | 3      | Automaticky rolující karusel s 6 recenzemi  |
+| `#venues`   | Působiště         | 4      | 6 dlaždic s místy vystoupení                |
+| `#services` | Služby            | 5      | 4 karty: Svatby, Firemní večírky, Narozeniny, Kluby |
+| `#gallery`  | Galerie           | 6      | Mřížka 6 fotek, klik otevře lightbox        |
+| `#contact`  | Kontakt           | 7      | Kontaktní info + formulář (Web3Forms)       |
 
 Každá sekce začíná HTML komentářem `<!-- ─── NÁZEV ─── -->` — snadno ji najdete v `index.html`.
 
@@ -62,33 +62,32 @@ Všechny texty jsou přímo v souboru **`index.html`**. Otevřete ho v textovém
 ```html
 <!-- hledejte sekci: ─── HERO ─── -->
 
-<p class="hero-eyebrow">Profesionální DJ · Praha &amp; celá ČR</p>
 <h1 class="hero-title"><span>ROZTANČÍM</span><br>KAŽDOU<br><span>VAŠI AKCI</span></h1>
-<p class="hero-sub">16 LET ZKUŠENOSTÍ · PŘIZPŮSOBÍM SE KAŽDÉ AKCI</p>
+<p class="hero-sub">16 LET ZKUŠENOSTÍ<span class="hero-sub-sep"> · </span><br class="hero-sub-br">PŘIZPŮSOBÍM SE KAŽDÉ AKCI</p>
 ```
 
 - Slova ve `<span>` jsou zobrazena červeně.
-- `&amp;` je HTML kód pro `&`.
+- Podtitulek se na mobilu (≤480px) rozdělí na dva řádky — `hero-sub-sep` (tečka) se skryje a `hero-sub-br` (zalomení) se zobrazí.
 
 ### Text „O mně"
 
 ```html
 <!-- hledejte sekci: ─── O MNĚ ─── -->
 
-<h2 class="section-title">16 LET ZA<br>MIXPULTEM</h2>
+<h2 class="section-title">16 let zkušeností,<br>tisíce odehraných akcí,<br>cit pro moment</h2>
 <p>
-  Jsem multižánrový DJ s více než 16 lety zkušeností...
+  Jsem multižánrový DJ, který má více než 16 lety zkušeností...
 </p>
 ```
 
 ### Statistiky (16+, 3300+, hvězdičky)
 
 ```html
-<span class="counter" data-target="16">0</span>
-<span class="counter" data-target="3300">0</span>
+<div class="stat-number counter" data-target="16">16+</div>
+<div class="stat-number counter" data-target="3300">3300+</div>
 ```
 
-Číslo v `data-target` určuje konečnou hodnotu animace. Počáteční hodnota `0` je přepsána animací při rolování.
+Hodnota v `data-target` určuje konečné číslo animace. HTML obsahuje finální hodnotu jako fallback — JS ji při scrollu přepíše na `0` a počítá nahoru (2s, easeOut). Číslo a `+` jsou v jednom elementu, aby nedocházelo k posunu layoutu.
 
 ### Kontaktní údaje
 
