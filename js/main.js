@@ -174,33 +174,19 @@ document.addEventListener('keydown', (e) => {
 
 
 
-// ── Stats fade-in + counter animation
-// HTML obsahuje finální čísla (layout je od začátku stabilní, fotka se nehýbe).
-// Při vstupu do viewportu: stats se zafadují (opacity 0→1, 1.2s CSS transition),
-// čísla se okamžitě resetují na 0 a počítají nahoru (easeOutCubic, 2s).
+// ── Counter animation (CSS @property)
+// Čistě CSS animace bez JS DOM updatů — žádné záškuby ani layout shifty.
+// JS pouze přidá styl s animation na span element při vstupu do viewportu.
 const statsEl = document.querySelector('.stats');
-const counters = document.querySelectorAll('.counter');
-if (statsEl && counters.length) {
+if (statsEl) {
   const statsObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-      counters.forEach(el => { el.textContent = '0'; });
-      statsEl.classList.add('visible');
-      counters.forEach(el => {
-        const target = +el.dataset.target;
-        const duration = 2000;
-        const start = performance.now();
-        function step(now) {
-          const t = Math.min((now - start) / duration, 1);
-          const val = t < 1 ? Math.floor((1 - Math.pow(1 - t, 3)) * target) : target;
-          el.textContent = val;
-          if (t < 1) requestAnimationFrame(step);
-        }
-        requestAnimationFrame(step);
-      });
+      statsEl.querySelector('.counter-16').style.animation   = 'count16   2s ease-out forwards';
+      statsEl.querySelector('.counter-3300').style.animation = 'count3300 2.5s ease-out forwards';
       statsObserver.unobserve(statsEl);
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.3 });
   statsObserver.observe(statsEl);
 }
 
