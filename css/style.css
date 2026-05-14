@@ -397,7 +397,7 @@ section { padding: 120px 60px; }
 .section-title {
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 800;
-  font-size: clamp(40px, 6vw, 80px);
+  font-size: 72px;
   letter-spacing: 1px;
   line-height: 1;
   color: var(--white);
@@ -506,12 +506,14 @@ section { padding: 120px 60px; }
   .about-photo-wrap::before { display: none; }
   .stats { gap: 24px; }
   .stat-number { font-size: 48px; }
+  .section-title { font-size: 56px; }
 }
 
 @media (max-width: 480px) {
   .stats { gap: 16px; flex-wrap: wrap; }
   .stat-number { font-size: 40px; }
   .stat-item { min-width: 80px; }
+  .section-title { font-size: 38px; }
 }
 
 /* ─── SERVICES ─── */
