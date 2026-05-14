@@ -174,19 +174,34 @@ document.addEventListener('keydown', (e) => {
 
 
 
-// ── Stat numbers fade-in
-// Čísla jsou v HTML rovnou jako finální hodnoty (žádná změna textu = žádný layout shift).
-// IntersectionObserver pouze přidá .visible → CSS opacity přechod 0 → 1.
-const statEls = document.querySelectorAll('.stat-reveal');
-if (statEls.length) {
-  const statObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
+// ── Stats fade-in + counter animation
+// HTML obsahuje finální čísla (layout je od začátku stabilní, fotka se nehýbe).
+// Při vstupu do viewportu: stats se zafadují (opacity 0→1, 1.2s CSS transition),
+// čísla se okamžitě resetují na 0 a počítají nahoru (easeOutCubic, 2s).
+const statsEl = document.querySelector('.stats');
+const counters = document.querySelectorAll('.counter');
+if (statsEl && counters.length) {
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-      setTimeout(() => entry.target.classList.add('visible'), i * 150);
-      statObserver.unobserve(entry.target);
+      counters.forEach(el => { el.textContent = '0'; });
+      statsEl.classList.add('visible');
+      counters.forEach(el => {
+        const target = +el.dataset.target;
+        const duration = 2000;
+        const start = performance.now();
+        function step(now) {
+          const t = Math.min((now - start) / duration, 1);
+          const val = t < 1 ? Math.floor((1 - Math.pow(1 - t, 3)) * target) : target;
+          el.textContent = val;
+          if (t < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+      statsObserver.unobserve(statsEl);
     });
   }, { threshold: 0.5 });
-  statEls.forEach(el => statObserver.observe(el));
+  statsObserver.observe(statsEl);
 }
 
 // ── Date picker (Flatpickr)
