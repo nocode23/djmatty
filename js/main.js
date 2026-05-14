@@ -172,32 +172,6 @@ document.addEventListener('keydown', (e) => {
 }());
 
 
-// ── Counter animation
-// requestAnimationFrame s easeOutCubic — plynulé zpomalení na konci.
-// Pevná šířka v CSS (min-width: 5ch) brání přeskakování layoutu při změně počtu číslic.
-const counters = document.querySelectorAll('.counter');
-if (counters.length) {
-  const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const el = entry.target;
-      const target = +el.dataset.target;
-      const duration = 1800;
-      const startTime = performance.now();
-      function step(now) {
-        const t = Math.min((now - startTime) / duration, 1);
-        const eased = 1 - Math.pow(1 - t, 3);
-        el.textContent = Math.floor(eased * target);
-        if (t < 1) requestAnimationFrame(step);
-        else el.textContent = target;
-      }
-      requestAnimationFrame(step);
-      counterObserver.unobserve(el);
-    });
-  }, { threshold: 0.5 });
-
-  counters.forEach(c => counterObserver.observe(c));
-}
 
 
 // ── Date picker (Flatpickr)
