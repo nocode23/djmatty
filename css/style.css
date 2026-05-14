@@ -516,7 +516,7 @@ section { padding: 120px 60px; }
 
 /* ─── SERVICES ─── */
 #services {
-  background: var(--bg2);
+  background: var(--bg);
 }
 
 .services-inner {
@@ -690,7 +690,7 @@ section { padding: 120px 60px; }
 /* Mřížka 3 sloupce na desktopu, 2 sloupce na mobilu.
    Kliknutí na .g-item zavolá openLightbox() v main.js. */
 #gallery {
-  background: var(--bg2);
+  background: var(--bg);
 }
 
 .gallery-inner {
