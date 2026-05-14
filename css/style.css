@@ -881,7 +881,7 @@ section { padding: 120px 60px; }
 /* 2 sloupce: vlevo kontaktní info, vpravo formulář (poměr 1 : 1.2).
    Na mobilu se překládají pod sebe. Formulář odesílá přes Web3Forms API (viz main.js). */
 #contact {
-  background: var(--bg2);
+  background: var(--bg);
 }
 
 .contact-inner {
