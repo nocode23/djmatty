@@ -284,6 +284,7 @@ nav.scrolled {
   line-height: 1.05;
   letter-spacing: 3px;
   color: var(--white);
+  margin-top: 60px;
   opacity: 0;
   transform: translateY(30px);
   animation: fadeUp 0.8s ease forwards 4.2s;
