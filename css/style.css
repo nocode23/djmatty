@@ -492,6 +492,14 @@ section { padding: 120px 60px; }
   min-width: 5ch;
 }
 
+.stat-reveal {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.stat-reveal.visible {
+  opacity: 1;
+}
+
 .stat-label {
   font-size: 12px;
   letter-spacing: 3px;

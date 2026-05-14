@@ -174,30 +174,19 @@ document.addEventListener('keydown', (e) => {
 
 
 
-// ── Counter animation
-// Aktualizuje DOM jen když se celé číslo změní (ne každý frame) — méně repaintů.
-// CSS contain:layout paint na .stats izoluje repainty od zbytku stránky.
-const counters = document.querySelectorAll('.counter');
-if (counters.length) {
-  const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+// ── Stat numbers fade-in
+// Čísla jsou v HTML rovnou jako finální hodnoty (žádná změna textu = žádný layout shift).
+// IntersectionObserver pouze přidá .visible → CSS opacity přechod 0 → 1.
+const statEls = document.querySelectorAll('.stat-reveal');
+if (statEls.length) {
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
       if (!entry.isIntersecting) return;
-      const el = entry.target;
-      const target = +el.dataset.target;
-      const duration = 1200;
-      const startTime = performance.now();
-      let lastVal = -1;
-      function step(now) {
-        const t = Math.min((now - startTime) / duration, 1);
-        const val = t < 1 ? Math.floor((1 - Math.pow(1 - t, 3)) * target) : target;
-        if (val !== lastVal) { el.textContent = val; lastVal = val; }
-        if (t < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
-      counterObserver.unobserve(el);
+      setTimeout(() => entry.target.classList.add('visible'), i * 150);
+      statObserver.unobserve(entry.target);
     });
   }, { threshold: 0.5 });
-  counters.forEach(c => counterObserver.observe(c));
+  statEls.forEach(el => statObserver.observe(el));
 }
 
 // ── Date picker (Flatpickr)
