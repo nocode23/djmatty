@@ -480,6 +480,7 @@ section { padding: 120px 60px; }
   display: flex;
   gap: 48px;
   margin-top: 40px;
+  contain: layout paint;
 }
 
 .stat-number {
