@@ -214,6 +214,42 @@ if (document.getElementById('fdate')) {
   });
 }
 
+// ── Cookie banner
+// Zobrazí banner při první návštěvě (pokud chybí souhlas v localStorage).
+// "Přijmout vše" uloží consent=all, "Pouze nezbytné" uloží consent=necessary.
+// Odkaz "Nastavení cookies" v patičce souhlas resetuje a banner znovu zobrazí.
+(function () {
+  const CONSENT_KEY = 'djmatty_consent';
+  const banner = document.getElementById('cookieBanner');
+  if (!banner) return;
+
+  function showBanner() {
+    banner.removeAttribute('hidden');
+  }
+
+  function hideBanner(value) {
+    localStorage.setItem(CONSENT_KEY, value);
+    banner.setAttribute('hidden', '');
+  }
+
+  if (!localStorage.getItem(CONSENT_KEY)) {
+    setTimeout(showBanner, 600);
+  }
+
+  document.getElementById('cookieAccept').addEventListener('click', () => hideBanner('all'));
+  document.getElementById('cookieDecline').addEventListener('click', () => hideBanner('necessary'));
+
+  const settingsLink = document.getElementById('cookieSettingsLink');
+  if (settingsLink) {
+    settingsLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      localStorage.removeItem(CONSENT_KEY);
+      showBanner();
+      banner.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    });
+  }
+}());
+
 // ── Contact form (Web3Forms)
 // Odešle formulář na Web3Forms API (https://api.web3forms.com/submit) jako FormData.
 // Access key je v hidden poli formuláře — identifikuje cílový e-mail.

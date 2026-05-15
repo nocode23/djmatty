@@ -76,7 +76,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
   <meta name="theme-color" content="#080808" />
-  <link rel="stylesheet" href="css/style.css?v=16" />
+  <link rel="stylesheet" href="css/style.css?v=17" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
 </head>
 <body>
@@ -512,6 +512,7 @@
           <textarea id="fmsg" name="message" placeholder="Řekněte mi více o vaší akci — místo, počet hostů..."></textarea>
         </div>
         <button type="submit" class="form-submit" id="formSubmitBtn">Odeslat poptávku</button>
+        <p class="form-gdpr-note">Odesláním formuláře souhlasíte se zpracováním zadaných osobních údajů za účelem odpovědi na vaši poptávku. Více v <a href="/zasady.html">zásadách ochrany osobních údajů</a>.</p>
       </form>
     </div>
   </div>
@@ -528,11 +529,25 @@
     <li><a href="#gallery">Galerie</a></li>
     <li><a href="#contact">Kontakt</a></li>
   </ul>
-  <p class="footer-copy">© 2025 DJ MATTY · Všechna práva vyhrazena</p>
+  <p class="footer-copy">© 2025 DJ MATTY · Všechna práva vyhrazena · <a href="/zasady.html" style="color:inherit;opacity:0.6;text-decoration:none;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.6">Zásady ochrany osobních údajů</a> · <a href="#" id="cookieSettingsLink" style="color:inherit;opacity:0.6;text-decoration:none;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.6">Nastavení cookies</a></p>
 </footer>
+
+<!-- ─── COOKIE BANNER ─── -->
+<div id="cookieBanner" class="cookie-banner" hidden>
+  <div class="cookie-banner__inner">
+    <div class="cookie-banner__text">
+      <strong>Cookies &amp; ochrana soukromí</strong>
+      <span>Tento web používá nezbytné soubory cookie pro svůj provoz. Kontaktní formulář zpracovává zadané údaje prostřednictvím služby Web3Forms. Více informací v <a href="/zasady.html" class="cookie-link">zásadách ochrany osobních údajů</a>.</span>
+    </div>
+    <div class="cookie-banner__actions">
+      <button id="cookieAccept" class="cookie-btn cookie-btn--accept">Přijmout vše</button>
+      <button id="cookieDecline" class="cookie-btn cookie-btn--decline">Pouze nezbytné</button>
+    </div>
+  </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/cs.js"></script>
-<script src="js/main.js?v=12"></script>
+<script src="js/main.js?v=13"></script>
 </body>
 </html>
