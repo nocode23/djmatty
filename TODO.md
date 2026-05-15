@@ -49,7 +49,7 @@
 - [ ] **9. Click-to-call tlačítko na mobilu** `UX` `konverze`
   Telefonní číslo je obyčejný text, není to klikatelné tlačítko. Na mobilu by mělo být velké CTA „Zavolat" s `tel:` odkazem.
 
-- [ ] **10. GDPR + cookie lišta** `právní`
+- [x] **10. GDPR + cookie lišta** `právní`
   Kontaktní formulář sbírá osobní údaje — chybí cookie banner i odkaz na zásady zpracování osobních údajů (privacy policy). V ČR povinnost.
 
 - [ ] **11. Vyjasnit sekci „Působiště"** `obsah` `UX`
