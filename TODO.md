@@ -40,7 +40,7 @@
   - Sekundární CTA tlačítko („Poslechnout ukázku")
   - Zvážit změnu hlavního CTA na akčnější („Zjistit dostupnost termínu")
 
-- [ ] **7. Opravit Instagram odkaz v patičce** `vývoj` `UX`
+- [x] **7. Opravit Instagram odkaz v patičce** `vývoj` `UX`
   Zobrazuje se jako dlouhá URL `https://www.instagram.com/djmattycz?igsh=...` místo ikony. Vypadá to jako chyba.
 
 - [ ] **8. Zjednodušit kontaktní formulář** `UX` `konverze`
