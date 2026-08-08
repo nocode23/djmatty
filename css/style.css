@@ -468,7 +468,6 @@ section { padding: 120px 60px; }
   position: absolute;
   inset: -20px;
   border: 1px solid var(--red);
-  opacity: 0.3;
   z-index: 0;
 }
 
