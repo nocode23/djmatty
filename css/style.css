@@ -469,7 +469,7 @@ section { padding: 120px 60px; }
 
 .about-text-side { padding-left: 20px; }
 
-.about-text-side p {
+.about-text-side p:not(.section-label) {
   font-size: 17px;
   line-height: 1.8;
   color: rgba(255,255,255,0.7);
@@ -541,7 +541,7 @@ section { padding: 120px 60px; }
 }
 
 .service-card {
-  background: var(--bg3);
+  background: var(--bg);
   border: 1px solid var(--border);
   border-top: 3px solid var(--red);
   padding: 48px 40px;
@@ -812,7 +812,7 @@ section { padding: 120px 60px; }
 }
 
 .venue-item {
-  background: var(--bg3);
+  background: var(--bg);
   border: 1px solid var(--border);
   border-top: 3px solid var(--red);
   padding: 36px 32px;

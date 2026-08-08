@@ -50,7 +50,7 @@ sitemap.xml
 - **Contact form** — Web3Forms, access_key `ffcf9aa4-97c7-4f0f-bae8-62b28dacb083`, free tier 250 msg/month.
 - **Date picker** — Flatpickr from CDN (jsdelivr.net), field `#fdate`, format `d.m.Y`, `minDate: 'today'`, locale `cs`.
 - **Stats counter** — `.stat-number.counter[data-target]` elements; HTML holds final value as fallback; JS resets to `0` and counts up (2s easeOutCubic) on IntersectionObserver. Number and `+` in single element to avoid layout shift.
-- **Cache busting** — current versions: `style.css?v=27`, `main.js?v=14`.
+- **Cache busting** — current versions: `style.css?v=29`, `main.js?v=14`.
 
 ## Brand
 
