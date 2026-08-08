@@ -52,9 +52,8 @@
 - [x] **10. GDPR + cookie lišta** `právní`
   Kontaktní formulář sbírá osobní údaje — chybí cookie banner i odkaz na zásady zpracování osobních údajů (privacy policy). V ČR povinnost.
 
-- [ ] **11. Vyjasnit sekci „Působiště"** `obsah` `UX`
-  Mix klubů (s odkazy) a sportovních klubů (bez kontextu) je matoucí. HC Slavia a Rytíři Kladno → moderace zápasů patří do Služeb, ne sem. Sjednotit formát, ideálně přidat loga.
-  Loga `images/logo_PartyBus.png` a `images/logo_Slavie.png` už jsou v repu, ale zatím nejsou napojená v `index.html` — dodělat později.
+- [x] **11. Vyjasnit sekci „Působiště"** `obsah` `UX`
+  Sjednocený formát s logy u všech dlaždic (Cafe 80's, Harlys Prague, HC Slavia Praha, PartyBus, PM Club), červený rámeček ve stylu recenzí. Rytíři Kladno odstraněni, u Slavie upraveno na „DJ a moderace".
 
 ---
 
