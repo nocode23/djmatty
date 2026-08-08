@@ -655,8 +655,8 @@ section { padding: 120px 60px; }
 .review-card {
   width: 400px;
   flex-shrink: 0;
-  background: var(--bg3);
-  border: 1px solid var(--border);
+  background: var(--bg);
+  border: 1px solid var(--red);
   padding: 36px;
   display: flex;
   flex-direction: column;

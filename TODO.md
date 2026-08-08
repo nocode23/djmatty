@@ -54,6 +54,7 @@
 
 - [ ] **11. Vyjasnit sekci „Působiště"** `obsah` `UX`
   Mix klubů (s odkazy) a sportovních klubů (bez kontextu) je matoucí. HC Slavia a Rytíři Kladno → moderace zápasů patří do Služeb, ne sem. Sjednotit formát, ideálně přidat loga.
+  Loga `images/logo_PartyBus.png` a `images/logo_Slavie.png` už jsou v repu, ale zatím nejsou napojená v `index.html` — dodělat později.
 
 ---
 
