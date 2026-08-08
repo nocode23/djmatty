@@ -526,7 +526,6 @@ section { padding: 120px 60px; }
   .about-grid { grid-template-columns: 1fr; gap: 48px; }
   .about-text-side { padding-left: 0; }
   .about-photo { aspect-ratio: 4/3; }
-  .about-photo-wrap::before { display: none; }
   .stats { gap: 24px; }
   .stat-number { font-size: 48px; }
   .section-title { font-size: 56px; }
