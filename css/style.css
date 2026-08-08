@@ -375,9 +375,11 @@ section { padding: 120px 60px; }
 
 @media (max-width: 480px) {
   #hero { padding-bottom: 56px; }
-  .hero-sub { font-size: 12px; letter-spacing: 1px; }
+  .hero-sub { font-size: 14px; letter-spacing: 1px; }
   .hero-btn { padding: 14px 28px; font-size: 12px; }
   .scroll-indicator { display: none; }
+  .hero-sub-sep { display: none; }
+  .hero-sub-br { display: inline; }
 }
 
 /* Nízká výška viewportu (mobil na šířku) — obličej na fotce zabírá většinu výšky,
@@ -540,7 +542,6 @@ section { padding: 120px 60px; }
 
 .service-card {
   background: var(--bg);
-  border: 1px solid var(--border);
   border-top: 3px solid var(--red);
   padding: 48px 40px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -811,7 +812,6 @@ section { padding: 120px 60px; }
 
 .venue-item {
   background: var(--bg);
-  border: 1px solid var(--border);
   border-top: 3px solid var(--red);
   padding: 36px 32px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
