@@ -274,7 +274,7 @@ nav.scrolled {
   font-family: 'Anton', sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: clamp(48px, 7vw, 88px);
+  font-size: clamp(62px, 7vw, 88px);
   line-height: 1.05;
   letter-spacing: 3px;
   color: var(--white);
@@ -378,8 +378,6 @@ section { padding: 120px 60px; }
   .hero-sub { font-size: 12px; letter-spacing: 1px; }
   .hero-btn { padding: 14px 28px; font-size: 12px; }
   .scroll-indicator { display: none; }
-  .hero-sub-sep { display: none; }
-  .hero-sub-br { display: inline; }
 }
 
 /* Nízká výška viewportu (mobil na šířku) — obličej na fotce zabírá většinu výšky,
