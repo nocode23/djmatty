@@ -145,8 +145,9 @@
 </main>
 
 <footer style="text-align:center;padding:32px 24px;border-top:1px solid #1a1a1a;font-size:13px;color:#555;">
-  © 2025 DJ MATTY · <a href="https://www.djmatty.cz/" style="color:var(--red);text-decoration:none;">djmatty.cz</a>
+  © <span id="copyrightYear">2025</span> DJ MATTY · <a href="https://www.djmatty.cz/" style="color:var(--red);text-decoration:none;">djmatty.cz</a>
 </footer>
 
+<script>document.getElementById('copyrightYear').textContent = new Date().getFullYear();</script>
 </body>
 </html>

@@ -289,3 +289,6 @@ if (contactForm) {
     btn.textContent = 'Odeslat poptávku';
   });
 }
+
+// ── Copyright year
+document.getElementById('copyrightYear').textContent = new Date().getFullYear();

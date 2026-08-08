@@ -270,18 +270,6 @@ nav.scrolled {
 
 /* Hero elementy jsou na začátku neviditelné (opacity: 0) a posunuté dolů (translateY).
    Animace fadeUp je zpožděna (delay 4s, 4.2s, 4.5s...) — nastoupí až po zmizení loaderu (~3.8s). */
-.hero-eyebrow {
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  color: var(--red);
-  margin-bottom: 20px;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 0.8s ease forwards 4s;
-}
-
 .hero-title {
   font-family: 'Anton', sans-serif;
   font-weight: 400;
@@ -387,7 +375,6 @@ section { padding: 120px 60px; }
 
 @media (max-width: 480px) {
   #hero { padding-bottom: 56px; }
-  .hero-eyebrow { font-size: 11px; letter-spacing: 2px; }
   .hero-sub { font-size: 12px; letter-spacing: 1px; }
   .hero-btn { padding: 14px 28px; font-size: 12px; }
   .scroll-indicator { display: none; }
@@ -399,7 +386,6 @@ section { padding: 120px 60px; }
    takže obsah zmenšíme a stáhneme co nejníž, aby do něj text nezasahoval. */
 @media (max-height: 500px) {
   #hero { padding-bottom: 20px; }
-  .hero-eyebrow { margin-bottom: 8px; }
   .hero-title { margin-top: 12px; font-size: clamp(32px, 6vw, 64px); }
   .hero-sub { margin-top: 10px; }
   .hero-btn { margin-top: 16px; }
@@ -1322,5 +1308,3 @@ footer {
 .zasady-page ul li { margin-bottom: 6px; }
 .zasady-page a { color: var(--red); text-decoration: none; }
 .zasady-page a:hover { text-decoration: underline; }
-.zasady-back { display: inline-flex; align-items: center; gap: 8px; color: #aaa; text-decoration: none; font-size: 14px; margin-bottom: 48px; transition: color 0.2s; }
-.zasady-back:hover { color: var(--red); }
