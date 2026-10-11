@@ -76,11 +76,27 @@ mobileMenu.addEventListener('click', (e) => {
 });
 
 // ── Lightbox
-// openLightbox(src): nastaví src obrázku a zobrazí overlay (#lightbox.open → display:flex).
-// closeLightbox: skryje overlay.
+// openLightbox(src): zobrazí overlay (#lightbox.open → display:flex) s fotkou z galerie.
+// showLightbox(i): zobrazí i-tou fotku (cyklicky); stepLightbox(±1) = předchozí/následující.
 // Zavírání: klik mimo obrázek (na overlay) nebo klávesa Escape.
+// Procházení: šipky na obrazovce, klávesy ←/→, swipe doleva/doprava na dotykových zařízeních.
+const galleryImgs = Array.from(document.querySelectorAll('.g-item img'));
+let lightboxIndex = 0;
+
+function showLightbox(i) {
+  lightboxIndex = (i + galleryImgs.length) % galleryImgs.length;
+  const img = document.getElementById('lightbox-img');
+  img.src = galleryImgs[lightboxIndex].getAttribute('src');
+  img.alt = galleryImgs[lightboxIndex].alt;
+}
+
+function stepLightbox(dir) {
+  showLightbox(lightboxIndex + dir);
+}
+
 function openLightbox(src) {
-  document.getElementById('lightbox-img').src = src;
+  const i = galleryImgs.findIndex(el => el.getAttribute('src') === src);
+  showLightbox(i < 0 ? 0 : i);
   document.getElementById('lightbox').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -90,12 +106,26 @@ function closeLightbox() {
   document.body.style.overflow = '';
 }
 
-document.getElementById('lightbox').addEventListener('click', (e) => {
-  if (e.target === document.getElementById('lightbox')) closeLightbox();
+const lightboxEl = document.getElementById('lightbox');
+
+lightboxEl.addEventListener('click', (e) => {
+  if (e.target === lightboxEl) closeLightbox();
 });
 
 document.addEventListener('keydown', (e) => {
+  if (!lightboxEl.classList.contains('open')) return;
   if (e.key === 'Escape') closeLightbox();
+  else if (e.key === 'ArrowLeft') stepLightbox(-1);
+  else if (e.key === 'ArrowRight') stepLightbox(1);
+});
+
+let lbTouchX = null;
+lightboxEl.addEventListener('touchstart', (e) => { lbTouchX = e.touches[0].clientX; }, { passive: true });
+lightboxEl.addEventListener('touchend', (e) => {
+  if (lbTouchX === null) return;
+  const dx = e.changedTouches[0].clientX - lbTouchX;
+  lbTouchX = null;
+  if (Math.abs(dx) > 50) stepLightbox(dx > 0 ? -1 : 1);
 });
 
 // ── Reviews touch drag / tap-to-pause
