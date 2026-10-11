@@ -750,8 +750,15 @@ section { padding: 120px 60px; }
 
 .g-item:hover .g-overlay { opacity: 1; }
 
+/* Široká dlaždice přes 2 sloupce (3:1 = stejná výška jako sousední 3:2 buňky). */
+.g-wide {
+  grid-column: span 2;
+  aspect-ratio: 3/1;
+}
+.g-wide img { object-position: center 30%; }
+
 @media (max-width: 768px) {
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-flow: dense; }
   .review-card { width: 280px; padding: 24px; }
   .review-text { font-size: 15px; }
 }

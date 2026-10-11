@@ -12,6 +12,7 @@
 9. [SEO a sdílení](#9-seo-a-sdílení)
 10. [Přechod na vlastní doménu](#10-přechod-na-vlastní-doménu)
 11. [Lokální spuštění webu](#11-lokální-spuštění-webu)
+12. [Předání souborů přes ZIP archiv](#12-předání-souborů-přes-zip-archiv)
 
 ---
 
@@ -117,8 +118,8 @@ Všechny fotky jsou ve složce **`images/`**.
 | Soubor                     | Použití                         |
 |----------------------------|---------------------------------|
 | `Matty_01-2-2.jpg`         | Pozadí hero sekce               |
-| `matty_02.jpg`             | Foto v sekci O mně + galerie     |
-| `IMG_5459.jpg` – `IMG_7425.jpg` | Fotky v galerii             |
+| `gallery_06_portret.jpg`             | Foto v sekci O mně + galerie     |
+| `gallery_01_…` – `gallery_10_…` (viz pojmenování v CLAUDE.md) | Fotky v galerii             |
 | `djMATTY-logo_cervena-radka-1.png` | Logo (nav + loader + footer) |
 | `og-image.jpg`             | Náhledový obrázek pro sdílení  |
 | `logo_cafe80th.png`        | Logo Cafe 80's (Kde mě najdete) |
@@ -164,7 +165,7 @@ Nebo přímo v `index.html` — pokud chcete mít `style` inline, přidejte jej 
 ### Jak změnit fotku v sekci O mně
 
 ```html
-<img class="about-photo" src="images/matty_02.jpg" alt="DJ MATTY" loading="lazy" />
+<img class="about-photo" src="images/gallery_06_portret.jpg" alt="DJ MATTY" loading="lazy" />
 ```
 
 Změňte `src` na jiný soubor.
@@ -464,3 +465,28 @@ python3 -m http.server 8080
 Pak otevřete `http://localhost:8080` v prohlížeči.
 
 > Soubor `index.html` lze také otevřít přímo jako soubor (`file://...`), ale loader animation a formulář budou fungovat správně jen přes HTTP server.
+
+---
+
+## 12. Předání souborů přes ZIP archiv
+
+Když je potřeba předat aktuální stav webu třetí straně bez přístupu ke gitu (např. k publikaci na skutečný hosting), používá se zip archiv celého webu, který se přidá přímo do repozitáře.
+
+### Pojmenování
+
+Archivy jdou v řadě: `djmatty.zip` → `djmatty2.zip` → `djmatty3.zip` → ... Vždy nová verze dostane vyšší číslo, staré archivy se v repu ponechávají (historie).
+
+### Postup
+
+1. Vytvořte zip celého webu (typicky přes macOS Finder → "Compress") a uložte ho do kořene repozitáře jako `djmatty<N>.zip` (další volné číslo v řadě).
+2. `git add djmatty<N>.zip`
+3. `git commit -m "Add djmatty<N>.zip archive for download"`
+4. `git push origin main`
+5. Odkaz ke stažení pro klienta/hosting:
+   ```
+   https://github.com/nocode23/djmatty/raw/main/djmatty<N>.zip
+   ```
+
+### Kontrola obsahu zipu před přidáním
+
+Pokud vám někdo zip archivu předá zpět (např. s tvrzením, že obsahuje novější verzi), nikdy ho nerozbalujte přímo do projektu — mohli byste přepsat rozpracované změny. Rozbalte ho do dočasné složky mimo repo a porovnejte soubor po souboru (`diff` u textových souborů, `shasum -a 256` u binárních jako obrázky/fonty), než uděláte závěr, že je novější nebo jiný.
