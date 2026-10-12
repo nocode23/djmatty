@@ -51,7 +51,7 @@ sitemap.xml
 - **Date picker** — Flatpickr from CDN (jsdelivr.net), field `#fdate`, format `d.m.Y`, `minDate: 'today'`, locale `cs`.
 - **Stats counter** — `.stat-number.counter[data-target]` elements; HTML holds final value as fallback; JS resets to `0` and counts up (2s easeOutCubic) on IntersectionObserver. Number and `+` in single element to avoid layout shift.
 - **Gallery photo naming** — `images/gallery_<NN>_<akce>-<popis>.jpg`: lowercase ASCII, hyphens within parts, NN = two-digit order in the grid (07+ for newer photos), `.jpg` extension (e.g. `gallery_07_svatba-sklep.jpg`). Wide tiles (`.g-wide`, span 2 cols, 3:1) are used to keep the grid rows full.
-- **Cache busting** — current versions: `style.css?v=35`, `main.js?v=15`.
+- **Cache busting** — current versions: `style.css?v=36`, `main.js?v=15`.
 - **Zip handoff to client** — user delivers the site to a non-technical party (for publishing to the real host) as a zip of the whole working tree, committed straight into the repo as `djmatty<N>.zip` (`djmatty.zip`, `djmatty2.zip`, `djmatty3.zip`, ...). When asked to "push the zip" / "udělat to samé jako předtím": `git add djmatty<N>.zip`, commit (message like "Add djmatty<N>.zip archive for download"), `git push origin main`, then hand back the raw download link `https://github.com/nocode23/djmatty/raw/main/djmatty<N>.zip`. Before trusting a zip the user hands you, verify its contents actually differ from the working tree (extract to a scratch dir, never over the project) rather than assuming it's newer.
 
 ## Brand
